@@ -57,6 +57,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED_RUN
 	else:
 		velocity.x = direction * SPEED
-		
+	
+	if is_on_wall():
+		velocity.x == 0
+		if animation.animation != "idle":
+			animation.play("idle")
 	# Déplacement
 	move_and_slide()
