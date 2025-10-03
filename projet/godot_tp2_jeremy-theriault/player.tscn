@@ -1,15 +1,15 @@
 [gd_scene load_steps=67 format=3 uid="uid://boyw2vsaav3ly"]
 
 [ext_resource type="Script" uid="uid://sf0hx8thy0m5" path="res://player.gd" id="1_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://7mlxx3jq4jl3" path="res://sprite/Samurai/Attack_1.png" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://c8liu5o4cdov7" path="res://sprite/Samurai/Attack_2.png" id="2_dw050"]
-[ext_resource type="Texture2D" uid="uid://b0dd1s8bk7y8j" path="res://sprite/Samurai/Jump.png" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://bymo1gxha3dnv" path="res://sprite/Samurai/Attack_3.png" id="3_b26j0"]
-[ext_resource type="Texture2D" uid="uid://cj4sh5yw84m5" path="res://sprite/Samurai/Idle.png" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://xl5hna2bsg28" path="res://sprite/Samurai/Run.png" id="4_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://citutw8r2ws1" path="res://sprite/Samurai/Walk.png" id="5_1jxqw"]
-[ext_resource type="Texture2D" uid="uid://dw4mfpllj11ty" path="res://sprite/Samurai/Dead.png" id="5_n7ghd"]
-[ext_resource type="Texture2D" uid="uid://dd02svqhm1g41" path="res://sprite/Samurai/Protection.png" id="8_b26j0"]
+[ext_resource type="Texture2D" uid="uid://7mlxx3jq4jl3" path="res://assets/sprites/Samurai/Attack_1.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://c8liu5o4cdov7" path="res://assets/sprites/Samurai/Attack_2.png" id="2_dw050"]
+[ext_resource type="Texture2D" uid="uid://b0dd1s8bk7y8j" path="res://assets/sprites/Samurai/Jump.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bymo1gxha3dnv" path="res://assets/sprites/Samurai/Attack_3.png" id="3_b26j0"]
+[ext_resource type="Texture2D" uid="uid://cj4sh5yw84m5" path="res://assets/sprites/Samurai/Idle.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://xl5hna2bsg28" path="res://assets/sprites/Samurai/Run.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://citutw8r2ws1" path="res://assets/sprites/Samurai/Walk.png" id="5_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://dw4mfpllj11ty" path="res://assets/sprites/Samurai/Dead.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://dd02svqhm1g41" path="res://assets/sprites/Samurai/Protection.png" id="8_b26j0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_op7ga"]
 atlas = ExtResource("3_sweqy")
@@ -448,24 +448,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
-size = Vector2(32, 69)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7ghd"]
+radius = 15.5
+height = 72.0
 
 [node name="player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+floor_max_angle = 0.872665
 script = ExtResource("1_n7ghd")
 
 [node name="sprite_idle" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_n7ghd")
 animation = &"idle"
 offset = Vector2(35.855, -10.735)
-
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
-offset_left = -14.0
-offset_top = 4.0
-offset_right = 26.0
-offset_bottom = 44.0
 
 [node name="Sprite_player" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(2, -11)
@@ -474,7 +470,8 @@ animation = &"jump"
 frame_progress = 0.587523
 
 [node name="Collision_player" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(6, 18.5)
-shape = SubResource("RectangleShape2D_sh265")
+position = Vector2(6, 17)
+shape = SubResource("CapsuleShape2D_n7ghd")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(1.595, 1.595)
