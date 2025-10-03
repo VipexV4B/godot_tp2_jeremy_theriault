@@ -474,4 +474,5 @@ position = Vector2(6, 17)
 shape = SubResource("CapsuleShape2D_n7ghd")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+offset = Vector2(0, -149.6)
 zoom = Vector2(1.595, 1.595)
