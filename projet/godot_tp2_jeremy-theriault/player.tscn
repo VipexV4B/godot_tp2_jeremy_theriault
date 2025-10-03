@@ -466,8 +466,7 @@ offset = Vector2(35.855, -10.735)
 [node name="Sprite_player" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(2, -11)
 sprite_frames = SubResource("SpriteFrames_op7ga")
-animation = &"jump"
-frame_progress = 0.587523
+animation = &"run"
 
 [node name="Collision_player" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(6, 17)

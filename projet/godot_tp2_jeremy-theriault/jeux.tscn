@@ -8,5 +8,5 @@
 [node name="map" parent="." instance=ExtResource("2_gds4p")]
 
 [node name="player" parent="." instance=ExtResource("1_nlqxw")]
-position = Vector2(46, -61)
+position = Vector2(21, 12)
 scale = Vector2(0.675, 0.675)
